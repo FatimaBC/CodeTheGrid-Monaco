@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictions F1</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-dark bg-danger mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Fórmula 1 Predictions</span>
+        </div>
+    </nav>
+
+
+            <!-- Predicctions Monaco 2025 Section -->
+            <div class="container mt-5">
+                <h2 class="text-center mb-4">Monaco 2025 Predictions</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card bg-dark text-white">
+                            <div class="card-header">
+                                <h3 class="text-center">Carlos Sainz</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-2">Expected Points (RF): {{ prediccion_monaco_2025_sainz['Puntos Esperados RF'] }}</p>
+                                <p class="mb-2">Expected Points (SVC): {{ prediccion_monaco_2025_sainz['Puntos Esperados SVC'] }}</p>
+                                <p class="mb-2">Expected Points (KNN): {{ prediccion_monaco_2025_sainz['Puntos Esperados KNN'] }}</p>
+                                <p class="mb-2">Expected Position (RF): {{ prediccion_monaco_2025_sainz['Posición Esperada RF'] }}</p>
+                                <p class="mb-2">Podium Probability (RF): {{ prediccion_monaco_2025_sainz['Probabilidad de Podio RF'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-dark text-white">
+                            <div class="card-header">
+                                <h3 class="text-center">Alexander Albon</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-2">Expected Points (RF): {{ prediccion_monaco_2025_albon['Puntos Esperados RF'] }}</p>
+                                <p class="mb-2">Expected Points (SVC): {{ prediccion_monaco_2025_albon['Puntos Esperados SVC'] }}</p>
+                                <p class="mb-2">Expected Points (KNN): {{ prediccion_monaco_2025_albon['Puntos Esperados KNN'] }}</p>
+                                <p class="mb-2">Expected Position (RF): {{ prediccion_monaco_2025_albon['Posición Esperada RF'] }}</p>
+                                <p class="mb-2">Podium Probability (RF): {{ prediccion_monaco_2025_albon['Probabilidad de Podio RF'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <div class="container">
+        <!-- Nueva sección de predicción Mónaco 2025 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card bg-dark border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0">2025 Monaco GP Prediction - Carlos Sainz</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Circuit</th>
+                                        <th>RF Points</th>
+                                        <th>SVC Points</th>
+                                        <th>KNN Points</th>
+                                        <th>RF Position</th>
+                                        <th>SVC Position</th>
+                                        <th>KNN Position</th>
+                                        <th>RF Podium Prob.</th>
+                                        <th>SVC Podium Prob.</th>
+                                        <th>KNN Podium Prob.</th>
+                                        <th>Best Historical</th>
+                                        <th>Worst Historical</th>
+                                        <th>Average Laps</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Wind</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-success">
+                                        <td>{{ prediccion_monaco_2025_sainz.Año }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz.Circuito }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Puntos Esperados RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Puntos Esperados SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Puntos Esperados KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Posición Esperada RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Posición Esperada SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Posición Esperada KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Probabilidad de Podio RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Probabilidad de Podio SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Probabilidad de Podio KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Mejor Resultado Histórico'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Peor Resultado Histórico'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Promedio de Vueltas'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Temperatura Promedio'] }}°C</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Humedad Promedio'] }}%</td>
+                                        <td>{{ prediccion_monaco_2025_sainz['Velocidad Viento Promedio'] }} km/h</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monaco 2025 Prediction - Alexander Albon -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card bg-dark border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">2025 Monaco GP Prediction - Alexander Albon</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Circuit</th>
+                                        <th>RF Points</th>
+                                        <th>SVC Points</th>
+                                        <th>KNN Points</th>
+                                        <th>RF Position</th>
+                                        <th>SVC Position</th>
+                                        <th>KNN Position</th>
+                                        <th>RF Podium Prob.</th>
+                                        <th>SVC Podium Prob.</th>
+                                        <th>KNN Podium Prob.</th>
+                                        <th>Best Historical</th>
+                                        <th>Worst Historical</th>
+                                        <th>Average Laps</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Wind</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ prediccion_monaco_2025_albon['Año'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Circuito'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Puntos Esperados RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Puntos Esperados SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Puntos Esperados KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Posición Esperada RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Posición Esperada SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Posición Esperada KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Probabilidad de Podio RF'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Probabilidad de Podio SVC'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Probabilidad de Podio KNN'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Mejor Resultado Histórico'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Peor Resultado Histórico'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Promedio de Vueltas'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Temperatura Promedio'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Humedad Promedio'] }}</td>
+                                        <td>{{ prediccion_monaco_2025_albon['Velocidad Viento Promedio'] }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Williams Predictions -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card bg-dark text-white">
+                            <div class="card-header" style="background-color: #005AFF;">
+                                <h4 class="mb-0">Williams</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Random Forest</h5>
+                                        <p>Expected Position: {{ prediccion_monaco_2025_williams['Posición Esperada RF'] }}º</p>
+                                        <p>Expected Points: {{ prediccion_monaco_2025_williams['Puntos Esperados RF'] }}</p>
+                                        <p>Podium Probability: {{ prediccion_monaco_2025_williams['Probabilidad de Podio RF'] }}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>SVC</h5>
+                                        <p>Expected Position: {{ prediccion_monaco_2025_williams['Posición Esperada SVC'] }}º</p>
+                                        <p>Expected Points: {{ prediccion_monaco_2025_williams['Puntos Esperados SVC'] }}</p>
+                                        <p>Podium Probability: {{ prediccion_monaco_2025_williams['Probabilidad de Podio SVC'] }}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>KNN</h5>
+                                        <p>Expected Position: {{ prediccion_monaco_2025_williams['Posición Esperada KNN'] }}º</p>
+                                        <p>Expected Points: {{ prediccion_monaco_2025_williams['Puntos Esperados KNN'] }}</p>
+                                        <p>Podium Probability: {{ prediccion_monaco_2025_williams['Probabilidad de Podio KNN'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card bg-dark border-danger">
+                    <div class="card-body">
+                        <div id="grafico-sainz"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-dark border-danger">
+                    <div class="card-body">
+                        <div id="grafico-albon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card bg-dark border-danger">
+                    <div class="card-body">
+                        <div id="grafico-monaco-sainz"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-dark border-danger">
+                    <div class="card-body">
+                        <div id="grafico-monaco-albon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card bg-dark border-danger">
+                    <div class="card-body">
+                        <div id="grafico-williams"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Carlos Sainz Metrics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Average Points</th>
+                                        <th>Accuracy</th>
+                                        <th>Precision</th>
+                                        <th>Recall</th>
+                                        <th>Score</th>
+                                        <th>Average Qualifying</th>
+                                        <th>Best Qualifying</th>
+                                        <th>Worst Qualifying</th>
+                                        <th>Qualifying Performance</th>
+                                        <th>Average Laps</th>
+                                        <th>Average Age</th>
+                                        <th>Driver Wins</th>
+                                        <th>Constructor Wins</th>
+                                        <th>Average Corners</th>
+                                        <th>Weather</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Wind</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pred in predicciones_sainz %}
+                                    <tr>
+                                        <td>{{ pred.Año }}</td>
+                                        <td>{{ pred['Puntos Promedio'] }}</td>
+                                        <td>{{ pred.Exactitud }}</td>
+                                        <td>{{ pred.Precisión }}</td>
+                                        <td>{{ pred.Recuperación }}</td>
+                                        <td>{{ pred.Puntuación }}</td>
+                                        <td>{{ pred['Qualifying Promedio'] }}</td>
+                                        <td>{{ pred['Mejor Qualifying'] }}</td>
+                                        <td>{{ pred['Peor Qualifying'] }}</td>
+                                        <td>{{ pred['Rendimiento Qualifying'] }}</td>
+                                        <td>{{ pred['Vueltas Promedio'] }}</td>
+                                        <td>{{ pred['Edad Promedio'] }}</td>
+                                        <td>{{ pred['Victorias Piloto'] }}</td>
+                                        <td>{{ pred['Victorias Constructor'] }}</td>
+                                        <td>{{ pred['Curvas Promedio'] }}</td>
+                                        <td>{{ pred['Clima Predominante'] }}</td>
+                                        <td>{{ pred['Temperatura Promedio'] }}°C</td>
+                                        <td>{{ pred['Humedad Promedio'] }}%</td>
+                                        <td>{{ pred['Velocidad Viento Promedio'] }} km/h</td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr class="table-success">
+                                        <td>{{ prediccion_proximo_anio_sainz.Año }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Puntos Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz.Exactitud }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz.Precisión }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz.Recuperación }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz.Puntuación }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Qualifying Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Mejor Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Peor Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Rendimiento Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Vueltas Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Edad Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Victorias Piloto'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Victorias Constructor'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Curvas Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Clima Predominante'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Temperatura Promedio'] }}°C</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Humedad Promedio'] }}%</td>
+                                        <td>{{ prediccion_proximo_anio_sainz['Velocidad Viento Promedio'] }} km/h</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Alexander Albon Metrics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Average Points</th>
+                                        <th>Accuracy</th>
+                                        <th>Precision</th>
+                                        <th>Recall</th>
+                                        <th>Score</th>
+                                        <th>Average Qualifying</th>
+                                        <th>Best Qualifying</th>
+                                        <th>Worst Qualifying</th>
+                                        <th>Qualifying Performance</th>
+                                        <th>Average Laps</th>
+                                        <th>Average Age</th>
+                                        <th>Driver Wins</th>
+                                        <th>Constructor Wins</th>
+                                        <th>Average Corners</th>
+                                        <th>Weather</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Wind</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pred in predicciones_albon %}
+                                    <tr>
+                                        <td>{{ pred.Año }}</td>
+                                        <td>{{ pred['Puntos Promedio'] }}</td>
+                                        <td>{{ pred.Exactitud }}</td>
+                                        <td>{{ pred.Precisión }}</td>
+                                        <td>{{ pred.Recuperación }}</td>
+                                        <td>{{ pred.Puntuación }}</td>
+                                        <td>{{ pred['Qualifying Promedio'] }}</td>
+                                        <td>{{ pred['Mejor Qualifying'] }}</td>
+                                        <td>{{ pred['Peor Qualifying'] }}</td>
+                                        <td>{{ pred['Rendimiento Qualifying'] }}</td>
+                                        <td>{{ pred['Vueltas Promedio'] }}</td>
+                                        <td>{{ pred['Edad Promedio'] }}</td>
+                                        <td>{{ pred['Victorias Piloto'] }}</td>
+                                        <td>{{ pred['Victorias Constructor'] }}</td>
+                                        <td>{{ pred['Curvas Promedio'] }}</td>
+                                        <td>{{ pred['Clima Predominante'] }}</td>
+                                        <td>{{ pred['Temperatura Promedio'] }}°C</td>
+                                        <td>{{ pred['Humedad Promedio'] }}%</td>
+                                        <td>{{ pred['Velocidad Viento Promedio'] }} km/h</td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr class="table-success">
+                                        <td>{{ prediccion_proximo_anio_albon.Año }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Puntos Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon.Exactitud }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon.Precisión }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon.Recuperación }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon.Puntuación }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Qualifying Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Mejor Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Peor Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Rendimiento Qualifying'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Vueltas Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Edad Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Victorias Piloto'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Victorias Constructor'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Curvas Promedio'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Clima Predominante'] }}</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Temperatura Promedio'] }}°C</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Humedad Promedio'] }}%</td>
+                                        <td>{{ prediccion_proximo_anio_albon['Velocidad Viento Promedio'] }} km/h</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Lap Times Outliers</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="grafico-outliers-lap-times-sainz"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="grafico-outliers-lap-times-albon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Pit Stops Outliers Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card bg-dark text-white">
+                    <div class="card-header bg-warning text-dark">
+                        <h3>Outliers en Pit Stops</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card bg-dark border-warning">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h4>Carlos Sainz</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="grafico-outliers-pit-stops-sainz"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-dark border-warning">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h4>Alexander Albon</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="grafico-outliers-pit-stops-albon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var graficoSainz = {{ grafico_sainz | safe }};
+        var graficoAlbon = {{ grafico_albon | safe }};
+        var graficoMonacoSainz = {{ grafico_monaco_sainz | safe }};
+        var graficoMonacoAlbon = {{ grafico_monaco_albon | safe }};
+        var graficoWilliams = {{ grafico_williams | safe }};
+        
+        Plotly.newPlot('grafico-sainz', graficoSainz.data, graficoSainz.layout);
+        Plotly.newPlot('grafico-albon', graficoAlbon.data, graficoAlbon.layout);
+        Plotly.newPlot('grafico-monaco-sainz', graficoMonacoSainz.data, graficoMonacoSainz.layout);
+        Plotly.newPlot('grafico-monaco-albon', graficoMonacoAlbon.data, graficoMonacoAlbon.layout);
+        Plotly.newPlot('grafico-williams', graficoWilliams.data, graficoWilliams.layout);
+
+        var graficoOutliersLapTimesSainz = JSON.parse('{{ grafico_outliers_lap_times_sainz | safe }}');
+        var graficoOutliersLapTimesAlbon = JSON.parse('{{ grafico_outliers_lap_times_albon | safe }}');
+        var graficoOutliersPitStopsSainz = JSON.parse('{{ grafico_outliers_pit_stops_sainz | safe }}');
+        var graficoOutliersPitStopsAlbon = JSON.parse('{{ grafico_outliers_pit_stops_albon | safe }}');
+
+        Plotly.newPlot('grafico-outliers-lap-times-sainz', graficoOutliersLapTimesSainz.data, graficoOutliersLapTimesSainz.layout);
+        Plotly.newPlot('grafico-outliers-lap-times-albon', graficoOutliersLapTimesAlbon.data, graficoOutliersLapTimesAlbon.layout);
+        Plotly.newPlot('grafico-outliers-pit-stops-sainz', graficoOutliersPitStopsSainz.data, graficoOutliersPitStopsSainz.layout);
+        Plotly.newPlot('grafico-outliers-pit-stops-albon', graficoOutliersPitStopsAlbon.data, graficoOutliersPitStopsAlbon.layout);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
