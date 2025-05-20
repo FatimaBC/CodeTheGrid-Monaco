@@ -1127,9 +1127,9 @@ def hacer_prediccion_monaco_2025_williams(datos_constructor, formula1_predict, f
         knn_pred = int(knn_model.predict(X_pred_scaled)[0])
         
         # Ajustar predicciones para Williams
-        rf_pred = max(7, min(12, rf_pred))  # Entre 7 y 12
-        svc_pred = max(8, min(13, svc_pred))  # Entre 8 y 13
-        knn_pred = max(6, min(11, knn_pred))  # Entre 6 y 11
+        rf_pred = max(3, min(6, rf_pred))  # Entre 3 y 6
+        svc_pred = max(4, min(7, svc_pred))  # Entre 4 y 7
+        knn_pred = max(2, min(5, knn_pred))  # Entre 2 y 5
         
         # Calcular probabilidades de podio
         rf_proba = rf_model.predict_proba(X_pred_scaled)[0]
@@ -1137,9 +1137,9 @@ def hacer_prediccion_monaco_2025_williams(datos_constructor, formula1_predict, f
         knn_proba = knn_model.predict_proba(X_pred_scaled)[0]
         
         # Ajustar probabilidades de podio para Williams
-        rf_proba = [min(0.15, max(0.05, rf_proba[0])), 1 - min(0.15, max(0.05, rf_proba[0]))]
-        svc_proba = [min(0.10, max(0.02, svc_proba[0])), 1 - min(0.10, max(0.02, svc_proba[0]))]
-        knn_proba = [min(0.12, max(0.03, knn_proba[0])), 1 - min(0.12, max(0.03, knn_proba[0]))]
+        rf_proba = [min(0.45, max(0.25, rf_proba[0])), 1 - min(0.45, max(0.25, rf_proba[0]))]
+        svc_proba = [min(0.40, max(0.20, svc_proba[0])), 1 - min(0.40, max(0.20, svc_proba[0]))]
+        knn_proba = [min(0.42, max(0.22, knn_proba[0])), 1 - min(0.42, max(0.22, knn_proba[0]))]
         
         # Calcular puntos esperados
         def calcular_puntos(posicion):
@@ -1171,9 +1171,9 @@ def hacer_prediccion_monaco_2025_williams(datos_constructor, formula1_predict, f
         puntos_knn = calcular_puntos(knn_pred)
         
         # Ajustar puntos para Williams
-        puntos_rf = max(0, min(6, puntos_rf))  # Entre 0 y 6 puntos
-        puntos_svc = max(0, min(4, puntos_svc))  # Entre 0 y 4 puntos
-        puntos_knn = max(0, min(8, puntos_knn))  # Entre 0 y 8 puntos
+        puntos_rf = max(8, min(25, puntos_rf))  # Entre 8 y 25 puntos
+        puntos_svc = max(6, min(18, puntos_svc))  # Entre 6 y 18 puntos
+        puntos_knn = max(10, min(25, puntos_knn))  # Entre 10 y 25 puntos
         
         # Crear predicción para 2025
         prediccion_2025 = {
